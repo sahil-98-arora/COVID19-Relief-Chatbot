@@ -1,0 +1,118 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- intent_start
+- greet
+- goodbye
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- user_entered_corona_tracker
+- user_entered_services
+- corona_state
+- user_entered_mail_id
+- user_choose_bigmansalon
+- user_choose_emart
+- user_choose_netmeds
+- user_BMS_book_slot
+- user_bms_choose_gender
+- user_bms_chose_items
+- user_NM_order
+- user_nm_choose_category
+- user_nm_chose_items
+entities:
+- state
+responses:
+  utter_greet:
+  - buttons:
+    - payload: I would like to see corona tracker
+      title: CORONA_TRACKER
+    - payload: I need to see services
+      title: SERVICES
+    image: https://sbybiz.org/app/uploads/2020/03/CFES-Relief.png
+    text: Hello! This is Covid Relief Bot. Our aim is to make things easier for the
+      public in this corona virus situatuion. How may i help you? (select/type)
+  utter_corona_tracker:
+  - image: https://www.en.etemaaddaily.com/pages/health/coronavirusupdates/6699covid19_udates__640x480_news.png
+    text: Please enter the correct state name (Indian only) , for country type India
+  utter_services_partner:
+  - buttons:
+    - payload: I need to check BigMan Salon
+      title: BIGMAN SALON
+    - payload: I need to check Netmeds
+      title: NETMEDS
+    image: https://tyndall.org/filesystem/tyndall/Webpages/StaticPages/Coronavirus/Covid19_Relief_Options_Landing_Page.jpg
+    text: Our partners are BIGMAN SALON and NETMEDS   (type/select)  (more partners
+      will be added soon)
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_mail_id:
+  - text: Please type your email id
+  utter_big_man_salon_greet:
+  - buttons:
+    - payload: Yes, i would like to book a slot
+      title: YES
+    - payload: No, i don't want to book a slot
+      title: NO
+    text: Hello! Welcome to BigMan Salon. Would you like to book a slot? (type/select)
+  utter_bms_chose_gender:
+  - buttons:
+    - payload: for men
+      title: men
+    - payload: for women
+      title: women
+    text: 'Book a slot for: (type/select)'
+  utter_big_man_salon_bye:
+  - text: Your booking is confirmed and the service partner will be notified. No need
+      to go anywhere our person will contact you tomorrow and will give all the services
+      at your home. STAY HOME STAY SAFE
+  utter_netmeds_greet:
+  - buttons:
+    - payload: Yes, order from netmeds
+      title: YES
+    - payload: No, i don't want to order
+      title: NO
+    text: Hello! Welcome to NetMeds. Would you like to order? (type/select)
+  utter_nm_chose_category:
+  - buttons:
+    - payload: for corona protection
+      title: corona protection
+    - payload: medicine
+      title: medicine
+    text: 'Chose a category: (type/select)'
+  utter_nm_bye:
+  - text: Your order is confirmed and the service partner will be notified. No need
+      to go anywhere our person will deliver the items at your home. STAY HOME STAY
+      SAFE
+actions:
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_ask_mail_id
+- utter_corona_tracker
+- action_corona_tracker
+- utter_services_partner
+- utter_big_man_salon_greet
+- utter_big_man_salon_bye
+- action_BMS_display_menu
+- utter_bms_chose_gender
+- action_bms_order_recieved
+- utter_netmeds_greet
+- utter_nm_chose_category
+- action_NM_display_menu
+- action_nm_order_recieved
+- utter_nm_bye
